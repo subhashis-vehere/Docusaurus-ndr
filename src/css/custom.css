@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --ifm-color-primary: #BF2228;
+  --ifm-color-primary-dark: #ac1f24;
+  --ifm-color-primary-darker: #a21d22;
+  --ifm-color-primary-darkest: #85181c;
+  --ifm-color-primary-light: #d2262c;
+  --ifm-color-primary-lighter: #dc282e;
+  --ifm-color-primary-lightest: #e5484d;
+
+  --ifm-font-family-base: 'IBM Plex Sans', sans-serif;
+  --ifm-heading-font-family: 'Space Grotesk', sans-serif;
+  --ifm-font-family-monospace: 'IBM Plex Mono', monospace;
+
+  --ifm-code-font-size: 92%;
+  --ifm-heading-font-weight: 600;
+  --docusaurus-highlighted-code-line-bg: rgba(191, 34, 40, 0.1);
+}
+
+/* Light mode: near-black text on paper, red accent */
+[data-theme='light'] {
+  --ifm-background-color: #F7F7F7;
+  --ifm-navbar-background-color: #FFFFFF;
+  --ifm-footer-background-color: #0A0A0A;
+}
+
+/* Dark mode: true black canvas, matching vehere.com */
+[data-theme='dark'] {
+  --ifm-color-primary: #E5484D;
+  --ifm-color-primary-dark: #d5333a;
+  --ifm-color-primary-darker: #bf2228;
+  --ifm-color-primary-darkest: #8f181d;
+  --ifm-color-primary-light: #e96468;
+  --ifm-color-primary-lighter: #ee7276;
+  --ifm-color-primary-lightest: #f5a5a7;
+
+  --ifm-background-color: #0A0A0A;
+  --ifm-background-surface-color: #141414;
+  --ifm-navbar-background-color: #0A0A0A;
+  --ifm-footer-background-color: #050505;
+  --ifm-toc-border-color: #2B2B2B;
+  --ifm-hr-border-color: #2B2B2B;
+  --docusaurus-highlighted-code-line-bg: rgba(229, 72, 77, 0.15);
+}
+
+/* Navbar now follows the color-mode toggle via --ifm-navbar-background-color
+   above, instead of being forced black. Border and link colors adapt too. */
+.navbar {
+  border-bottom: 1px solid var(--ifm-toc-border-color, #E2E2E2);
+}
+[data-theme='dark'] .navbar__title,
+[data-theme='dark'] .navbar__link {
+  color: #F5F5F5;
+}
+[data-theme='dark'] .navbar__link:hover,
+[data-theme='dark'] .navbar__link--active {
+  color: #E5484D;
+}
+
+/* Footer intentionally stays a dark brand band in both color modes
+   (matching vehere.com's own footer). If you'd rather it switch to
+   light too, remove this block and the --ifm-footer-background-color
+   override in the light-mode block above. */
+.footer {
+  background-color: #050505 !important;
+  border-top: 1px solid #2B2B2B;
+}
+.footer--dark {
+  --ifm-footer-background-color: #050505;
+}
+
+/* Sidebar current-page emphasis in brand color */
+.theme-doc-sidebar-item-link-level-1 .menu__link--active,
+.menu__link--active:not(.menu__link--sublist) {
+  color: var(--ifm-color-primary);
+  font-weight: 500;
+}
+
+/* Admonitions: keep tip/info in a muted brand-consistent tone */
+.admonition {
+  border-radius: 8px;
+}
+
+/* Headings use the display font, tightened */
+h1, h2, h3 {
+  letter-spacing: -0.01em;
+}
+
+/* Version/status pill spacing already handled in CapabilityMeta component */

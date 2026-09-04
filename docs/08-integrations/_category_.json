@@ -1,0 +1,5 @@
+{
+  "label": "08 — Integrations",
+  "position": 8,
+  "link": { "type": "generated-index", "description": "Connect Vehere NDR to SIEM, SOAR, Active Directory, threat intelligence, and APIs." }
+}

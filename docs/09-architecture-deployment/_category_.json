@@ -1,0 +1,5 @@
+{
+  "label": "09 — Architecture & Deployment",
+  "position": 9,
+  "link": { "type": "generated-index", "description": "Deployment models, high availability, hardware sizing, and storage planning." }
+}

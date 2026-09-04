@@ -1,0 +1,5 @@
+{
+  "label": "03 — Threat Detection",
+  "position": 3,
+  "link": { "type": "generated-index", "description": "Signature, IOC/IOA, and ML-based detection across network telemetry." }
+}
