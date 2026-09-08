@@ -47,10 +47,90 @@ const capabilities = [
 ];
 
 const releases = [
+  {version: '1.8.4', title: 'Update release notes with 1.8.4 highlights here', date: 'TBD'},
   {version: '1.8.3', title: 'AI alert triage GA, AD correlation performance', date: '12 Aug 2026'},
   {version: '1.8.2', title: 'TLS fingerprinting coverage expanded', date: '02 Jul 2026'},
   {version: '1.8.1', title: 'SOAR playbook trigger improvements', date: '18 Jun 2026'},
   {version: '1.8.0', title: 'Intelligent whitelisting, Data Grid performance overhaul', date: '04 May 2026'},
+];
+
+const variants = [
+  {
+    name: 'NDR + PCAP',
+    badge: 'Most Popular',
+    icon: '🛡️',
+    desc: 'Comprehensive AI-powered network security platform combining NDR and FPC capabilities.',
+    href: '/docs/overview/what-is-ndr',
+    features: [
+      {label: 'Full Packet Capture with 100% Raw Storage', included: true},
+      {label: 'HA Probes', included: true},
+      {label: 'Rule-based Threat Detection', included: true},
+      {label: 'ML-based Threat Detection', included: true},
+      {label: 'ML-based EBA Model', included: true},
+      {label: 'Threat Hunting', included: true},
+      {label: 'Forensics', included: true},
+      {label: 'IDS-based Rules', included: true},
+      {label: 'Alerting Dashboard', included: true},
+      {label: 'Application Visibility', included: true},
+      {label: 'Device Profiling', included: true},
+      {label: 'Analytics Dashboard', included: true},
+      {label: 'Data Grid', included: true},
+      {label: 'Link Analysis', included: true},
+      {label: 'Session Reconstruction', included: true},
+      {label: 'Advanced Search', included: true},
+      {label: 'Report', included: true},
+    ],
+  },
+  {
+    name: 'NDR',
+    icon: '🌐',
+    desc: 'Network Detection and Response solution providing deep visibility across your infrastructure.',
+    href: '/docs/overview/what-is-ndr',
+    features: [
+      {label: 'Full Packet Capture with Partial Raw Storage', included: false},
+      {label: 'HA Probes', included: true},
+      {label: 'Rule-based Threat Detection', included: true},
+      {label: 'ML-based Threat Detection', included: true},
+      {label: 'ML-based EBA Model', included: true},
+      {label: 'Threat Hunting', included: false},
+      {label: 'Forensics', included: false},
+      {label: 'IDS-based Rules', included: true},
+      {label: 'Alerting Dashboard', included: true},
+      {label: 'Application Visibility', included: false},
+      {label: 'Device Profiling', included: false},
+      {label: 'Analytics Dashboard', included: false},
+      {label: 'Data Grid', included: true},
+      {label: 'Link Analysis', included: false},
+      {label: 'Session Reconstruction', included: false},
+      {label: 'Advanced Search', included: true},
+      {label: 'Report', included: true},
+    ],
+  },
+  {
+    name: 'FPC',
+    icon: '🗂️',
+    desc: 'Next-generation network filtering with AI-powered classification and policy enforcement.',
+    href: '/docs/overview/what-is-ndr',
+    features: [
+      {label: 'Full Packet Capture with 100% Raw Storage', included: true},
+      {label: 'HA Probes', included: true},
+      {label: 'Rule-based Threat Detection', included: false},
+      {label: 'ML-based Threat Detection', included: false},
+      {label: 'ML-based EBA Model', included: false},
+      {label: 'Threat Hunting', included: true},
+      {label: 'Forensics', included: true},
+      {label: 'IDS-based Rules', included: false},
+      {label: 'Alerting Dashboard', included: false},
+      {label: 'Application Visibility', included: true},
+      {label: 'Device Profiling', included: true},
+      {label: 'Analytics Dashboard', included: true},
+      {label: 'Data Grid', included: true},
+      {label: 'Link Analysis', included: true},
+      {label: 'Session Reconstruction', included: true},
+      {label: 'Advanced Search', included: true},
+      {label: 'Report', included: true},
+    ],
+  },
 ];
 
 export default function Home() {
@@ -83,7 +163,7 @@ export default function Home() {
                   Architecture
                 </Link>
                 <Link className={`${styles.btn} ${styles.btnGhost}`} to="/docs/reference/release-notes">
-                  What's New in 1.8.3
+                  What's New in 1.8.4
                 </Link>
               </div>
             </div>
@@ -136,7 +216,39 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+{/* SOLUTION COMPARISON */}
+<section className={styles.section}>
+  <div className={styles.wrap}>
+    <div className={styles.sectionHead}>
+      <div className={styles.sectionEyebrow}>Choose Your Solution</div>
+      <h2 className={styles.sectionTitle}>Compare NDR + PCAP, NDR, and FPC</h2>
+      <p className={styles.sectionDesc}>
+        Three variants of the platform, built on the same detection and investigation engine —
+        choose based on the capture, storage, and analysis depth your environment needs.
+      </p>
+    </div>
+    <div className={styles.variantGrid}>
+      {variants.map((v) => (
+        <div className={styles.variantCard} key={v.name}>
+          {v.badge && <span className={styles.variantBadge}>{v.badge}</span>}
+          <div className={styles.variantIcon}>{v.icon}</div>
+          <h3 className={styles.variantTitle}>{v.name}</h3>
+          <p className={styles.variantDesc}>{v.desc}</p>
+          <ul className={styles.variantFeatureList}>
+            {v.features.map((f) => (
+              <li key={f.label} className={f.included ? styles.included : styles.excluded}>
+                {f.label}
+              </li>
+            ))}
+          </ul>
+          <Link className={`${styles.btn} ${styles.btnPrimary} ${styles.variantCta}`} to={v.href}>
+            Explore {v.name}
+          </Link>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
       {/* EVIDENCE STRIP */}
       <div className={styles.wrap}>
         <div className={styles.evidence}>
@@ -162,7 +274,7 @@ export default function Home() {
             <div className={styles.releaseEyebrow}>
               <span className={styles.releaseBadge}>Latest</span>Release Notes
             </div>
-            <h2>What's New in NDR 1.8.3</h2>
+            <h2>What's New in NDR 1.8.4</h2>
             <p>Every release ships with public, version-tagged notes — so capabilities are documented the moment they go GA, not months later.</p>
             <ul className={styles.releaseHighlights}>
               <li><span className={styles.tag}>NEW</span>AI-assisted alert triage now generally available across all sensor tiers</li>

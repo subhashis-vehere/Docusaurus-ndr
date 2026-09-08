@@ -102,7 +102,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Vehere NDR Product Guide · Documentation Version 1.8.3`,
+        copyright: `Vehere NDR Product Guide · Documentation Version 1.8.4`,
       },
       prism: {
         theme: prismThemes.github,
