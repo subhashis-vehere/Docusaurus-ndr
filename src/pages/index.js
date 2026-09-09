@@ -107,9 +107,9 @@ const variants = [
     ],
   },
   {
-    name: 'FPC',
+    name: 'PCAP',
     icon: '🗂️',
-    desc: 'Next-generation network filtering with AI-powered classification and policy enforcement.',
+    desc: 'Next-generation network forensic with classification and policy enforcement.',
     href: '/docs/overview/what-is-ndr',
     features: [
       {label: 'Full Packet Capture with 100% Raw Storage', included: true},
