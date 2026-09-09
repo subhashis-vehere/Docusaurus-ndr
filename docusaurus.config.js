@@ -1,42 +1,42 @@
 // @ts-check
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Vehere NDR Product Guide',
-  tagline: 'Detect. Investigate. Understand. Respond.',
-  favicon: 'img/favicon.ico',
+  title: "Vehere NDR Product Guide",
+  tagline: "Detect. Investigate. Understand. Respond.",
+  favicon: "img/favicon.ico",
 
   future: {
     v4: true,
   },
 
-  url: 'https://docs.vehere.com',
-  baseUrl: '/',
+  url: "https://docs.vehere.com",
+  baseUrl: "/",
 
-  organizationName: 'vehere',
-  projectName: 'ndr-product-guide',
+  organizationName: "vehere",
+  projectName: "ndr-product-guide",
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: 'docs',
-          sidebarPath: './sidebars.js',
+          routeBasePath: "docs",
+          sidebarPath: "./sidebars.js",
         },
         blog: false,
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       }),
     ],
@@ -45,61 +45,72 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/docusaurus-social-card.jpg',
+      image: "img/docusaurus-social-card.jpg",
       colorMode: {
-        defaultMode: 'dark',
+        defaultMode: "dark",
         disableSwitch: false,
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: 'VEHERE',
+        // title: "VEHERE",
+        hideOnScroll: true,
         logo: {
-          alt: 'Vehere Logo',
-          src: 'img/logo.svg',
+          alt: "Vehere Logo",
+          src: "img/logo.svg",
         },
         items: [
-          {to: '/', label: 'Overview', position: 'left'},
+          { to: "/", label: "Overview", position: "left", exact: true },
           {
-            type: 'docSidebar',
-            sidebarId: 'docsSidebar',
-            position: 'left',
-            label: 'Documentation',
+            to: "/docs/overview/what-is-ndr",
+            position: "left",
+            label: "Documentation",
+            activeBaseRegex: "^/docs/(?!reference/release-notes)",
           },
           {
-            to: '/docs/reference/release-notes',
+            to: "/docs/reference/release-notes",
             label: "What's New",
-            position: 'left',
+            position: "left",
           },
           {
-            href: 'https://vehere.com',
-            label: 'vehere.com',
-            position: 'right',
+            href: "https://vehere.com",
+            label: "vehere.com",
+            position: "right",
+          },
+          {
+            href: "https://kb.vehere.com/login",
+            label: "Login",
+            position: "right",
+            className: "navbar-login-btn",
           },
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Documentation',
+            title: "Documentation",
             items: [
-              {label: 'Product Overview', to: '/docs/overview/what-is-ndr'},
-              {label: 'Threat Detection', to: '/docs/threat-detection/signature-detection'},
-              {label: 'Integrations', to: '/docs/integrations/siem'},
-              {label: 'Architecture & Deployment', to: '/docs/architecture-deployment/high-availability'},
+              { label: "Product Overview", to: "/docs/overview/what-is-ndr" },
+              {
+                label: "Threat Detection",
+                to: "/docs/threat-detection/signature-detection",
+              },
+              { label: "Integrations", to: "/docs/integrations/siem" },
+              {
+                label: "Architecture & Deployment",
+                to: "/docs/architecture-deployment/high-availability",
+              },
             ],
           },
           {
-            title: 'Reference',
+            title: "Reference",
             items: [
-              {label: 'Release Notes', to: '/docs/reference/release-notes'},
+              { label: "Release Notes", to: "/docs/reference/release-notes" },
             ],
           },
           {
-            title: 'Vehere',
-            items: [
-              {label: 'vehere.com', href: 'https://vehere.com'},
-            ],
+            title: "Vehere",
+            items: [{ label: "vehere.com", href: "https://vehere.com" }],
           },
         ],
         copyright: `Vehere NDR Product Guide · Documentation Version 1.8.4`,

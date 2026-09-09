@@ -46,9 +46,49 @@
 
 /* Navbar now follows the color-mode toggle via --ifm-navbar-background-color
    above, instead of being forced black. Border and link colors adapt too. */
+:root {
+  --ifm-navbar-height: 64px;
+}
 .navbar {
   border-bottom: 1px solid var(--ifm-toc-border-color, #E2E2E2);
+  padding: 0 12px;
+  box-shadow: none;
 }
+.navbar__brand {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-right: 8px;
+}
+.navbar__logo {
+  height: 30px;
+  margin-right: 8px;
+}
+.navbar__items--left .navbar__item + .navbar__item {
+  margin-left: 2px;
+}
+.navbar__link {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 14px !important;
+  border-radius: 7px;
+  position: relative;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.navbar__link:hover {
+  background-color: rgba(191, 34, 40, 0.08);
+  text-decoration: none;
+}
+.navbar__link--active::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 2px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ifm-color-primary);
+}
+
 [data-theme='dark'] .navbar__title,
 [data-theme='dark'] .navbar__link {
   color: #F5F5F5;
@@ -56,6 +96,33 @@
 [data-theme='dark'] .navbar__link:hover,
 [data-theme='dark'] .navbar__link--active {
   color: #E5484D;
+}
+[data-theme='dark'] .navbar__link:hover {
+  background-color: rgba(229, 72, 77, 0.1);
+}
+
+/* Login CTA — a distinct filled button rather than a plain nav link,
+   since it points to a different site (kb.vehere.com) where actual
+   customers sign in for the full internal user manual. Colors are
+   hardcoded (not theme tokens) so it reads the same, solid red button
+   in both light and dark mode — like any primary call-to-action. */
+.navbar-login-btn {
+  background-color: #BF2228 !important;
+  color: #FFFFFF !important;
+  padding: 7px 18px !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+  margin-left: 10px;
+}
+.navbar-login-btn:hover {
+  background-color: #A31D22 !important;
+  color: #FFFFFF !important;
+}
+.navbar-login-btn::after {
+  display: none !important;
+}
+.navbar-login-btn svg {
+  display: none !important;
 }
 
 /* Footer intentionally stays a dark brand band in both color modes
